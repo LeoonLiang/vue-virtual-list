@@ -1,0 +1,37 @@
+{
+  "name": "vue-virtual-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "rollup -c",
+    "lint": "eslint 'src/**/*.{ts,vue}'",
+    "format": "prettier --write 'src/**/*.{ts,vue,js,json,md}'",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "leoonliang",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^3.5.24",
+    "vue-demi": "^0.14.10"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.46.4",
+    "@typescript-eslint/parser": "^8.46.4",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/compiler-sfc": "^3.5.24",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-vue": "^10.5.1",
+    "prettier": "^3.6.2",
+    "rollup": "^4.53.2",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2",
+    "vue-template-compiler": "^2.7.16"
+  }
+}

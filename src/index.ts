@@ -1,3 +1,12 @@
-import VirtualList from './components/VirtualList.vue';
-export default VirtualList;
-export * from './components/VirtualList.vue';
+import { App, Plugin } from 'vue-demi'
+import VirtualList from './VirtualList.vue'
+
+export { VirtualList }
+
+const _default = VirtualList as typeof VirtualList & { install: Plugin['install'] }
+
+_default.install = (app: App) => {
+  app.component('VirtualList', VirtualList)
+}
+
+export default _default

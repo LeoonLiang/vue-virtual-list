@@ -1,23 +1,41 @@
 {
   "name": "vue-virtual-list",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A high-performance virtual list component for Vue 2 and 3, written in TypeScript.",
+  "author": "Leoon Liang",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "vue",
+    "vue2",
+    "vue3",
+    "virtual-list",
+    "virtual-scroller",
+    "typescript",
+    "vue-demi",
+    "infinite-scroll"
+  ],
+  "main": "dist/vue-virtual-list.cjs.js",
+  "module": "dist/vue-virtual-list.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "rollup -c",
     "lint": "eslint 'src/**/*.{ts,vue}'",
     "format": "prettier --write 'src/**/*.{ts,vue,js,json,md}'",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "prepare": "npm run build"
   },
-  "keywords": [],
-  "author": "leoonliang",
-  "license": "ISC",
-  "dependencies": {
-    "vue": "^3.5.24",
-    "vue-demi": "^0.14.10"
+  "peerDependencies": {
+    "vue": "^2.6.0 || ^3.0.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-typescript": "^12.3.0",
     "@typescript-eslint/eslint-plugin": "^8.46.4",
     "@typescript-eslint/parser": "^8.46.4",
     "@vitejs/plugin-vue": "^6.0.1",
@@ -28,10 +46,11 @@
     "eslint-plugin-vue": "^10.5.1",
     "prettier": "^3.6.2",
     "rollup": "^4.53.2",
+    "rollup-plugin-css-only": "^4.5.5",
     "rollup-plugin-typescript2": "^0.36.0",
     "rollup-plugin-vue": "^6.0.0",
     "typescript": "^5.9.3",
     "vite": "^7.2.2",
-    "vue-template-compiler": "^2.7.16"
+    "vue-demi": "^0.14.10"
   }
 }

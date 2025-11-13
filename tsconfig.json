@@ -10,5 +10,5 @@
     "skipLibCheck": true,
     "types": ["vue", "vue-demi"]
   },
-  "include": ["src"]
+  "include": ["src/**/*", "shims-vue.d.ts"]
 }

@@ -18,6 +18,7 @@
 
 <script setup lang="ts">
 import VirtualList from '../src';
+console.log(VirtualList);
 const list = Array.from({ length: 1000 }, (_, i) => ({
   id: i,
   title: `Title ${i}`,

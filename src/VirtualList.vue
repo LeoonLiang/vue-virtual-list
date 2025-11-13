@@ -24,6 +24,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed, nextTick, watch, onBeforeUnmount } from 'vue-demi';
+import type { CSSProperties } from 'vue-demi';
 
 export default defineComponent({
   name: 'VirtualList',
@@ -47,7 +48,7 @@ export default defineComponent({
     const rebuildPrefix = () => {
       const arr: number[] = [0];
       for (let i = 0; i < props.data.length; i++) {
-        const h = itemHeights.value.get(i) ?? props.estimatedItemHeight;
+        const h = itemHeights.value.get(i) || props.estimatedItemHeight;
         arr.push(arr[i] + h);
       }
       prefixHeights.value = arr;
@@ -85,7 +86,7 @@ export default defineComponent({
       let total = 0;
 
       while (end < len && total < viewportHeight) {
-        total += itemHeights.value.get(end) ?? props.estimatedItemHeight;
+        total += itemHeights.value.get(end) || props.estimatedItemHeight;
         end++;
       }
       end = Math.min(len, end + props.buffer);
@@ -95,8 +96,8 @@ export default defineComponent({
 
     const start = computed(() => Math.max(0, startIndex.value - props.buffer));
 
-    const getItemStyle = (index: number) => {
-      const top = prefixHeights.value[index] ?? 0;
+    const getItemStyle = (index: number): CSSProperties => {
+      const top = prefixHeights.value[index] || 0;
       return {
         position: 'absolute',
         top: top + 'px',
@@ -104,7 +105,7 @@ export default defineComponent({
       };
     };
 
-    const getItemKey = (item: any, i: number) => item?.[props.keyField] ?? i;
+    const getItemKey = (item: any, i: number) => (item && item[props.keyField]) || i;
 
     // ------------------ ResizeObserver ------------------
     const resizeObservers = new Map<number, ResizeObserver>();

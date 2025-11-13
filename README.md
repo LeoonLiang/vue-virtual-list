@@ -1,5 +1,3 @@
-当然可以，这里是整理好的 `README.md` 内容，可以直接保存为 `README.md` 文件：
-
 ````markdown
 # leoon-vue-virtual-list
 

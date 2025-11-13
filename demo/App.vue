@@ -1,27 +1,26 @@
 <template>
-  <div style="padding:20px;border: 1px solid #000;">
-    <VirtualList :data="list" :itemHeight="40" :height="400">
-      <template #default="{ item }">
-        <div
-          style="box-sizing:border-box;border-bottom:1px solid #eee;display:flex;align-items:center;height:100%;padding-left:8px;"
-        >
-          {{ item.text }}
-        </div>
-      </template>
-    </VirtualList>
-  </div>
+  <VirtualList :data="list" :height="400" :estimatedItemHeight="60">
+    <template #default="{ item }">
+      <div
+        :style="{
+          background: '#f9f9f9',
+          margin: '4px 0',
+          border: '1px solid #ddd',
+          padding: '8px'
+        }"
+      >
+        <strong>{{ item.title }}</strong>
+        <p>{{ item.content }}</p>
+      </div>
+    </template>
+  </VirtualList>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
+<script setup lang="ts">
 import VirtualList from '../src';
-
-export default defineComponent({
-  name: 'App',
-  components: { VirtualList },
-  setup() {
-    const list = ref(Array.from({ length: 1000 }, (_, i) => ({ id: i, text: `Item ${i}` })));
-    return { list };
-  }
-});
+const list = Array.from({ length: 1000 }, (_, i) => ({
+  id: i,
+  title: `Title ${i}`,
+  content: '这是一个随机高度的内容 '.repeat(Math.floor(Math.random() * 20 + 1))
+}));
 </script>
